@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mehmet Höke | Mobile & Full-Stack Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1e293b 0, #020617 50%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 720px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      width: fit-content;
+    }
+
+    .title {
+      font-size: clamp(26px, 4vw, 32px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.5;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15,23,42,0.9);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-color: transparent;
+      color: #022c22;
+      font-weight: 600;
+    }
+
+    .btn span.icon {
+      font-size: 16px;
+    }
+
+    main {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .section {
+      background: radial-gradient(circle at top left, rgba(34,197,94,0.08), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(56,189,248,0.08), transparent 55%),
+                  var(--card);
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 16px;
+    }
+
+    .section h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .section p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+
+    .section small {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #cbd5f5;
+      background: rgba(15,23,42,0.7);
+    }
+
+    .projects {
+      display: grid;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    @media (min-width: 720px) {
+      .projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .project {
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15,23,42,0.9);
+      padding: 12px 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .project-pill {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      height: fit-content;
+    }
+
+    .project p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .project a {
+      font-size: 12px;
+      color: #bfdbfe;
+      text-decoration: none;
+      margin-top: 2px;
+    }
+
+    footer {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: #a5b4fc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="badge">
+          <span>🧑‍💻</span>
+          <span>Mehmet Höke · Mobile & Full-Stack</span>
+        </div>
+        <h1 class="title">React Native & Full-Stack geliştirici adayı</h1>
+        <p class="subtitle">
+          QuickCV ve PianoSense gibi projeler üzerinde çalışan, React Native, TypeScript,
+          Firebase ve Android ekosistemine odaklanan bir bilgisayar mühendisi adayıyım.
+        </p>
+        <div class="links">
+          <!-- Bu linkleri kendi gerçek profillerinle güncelle -->
+          <a class="btn primary" href="#projects">
+            <span class="icon">🚀</span>
+            <span>Projelerime göz at</span>
+          </a>
+          <a class="btn" href="https://github.com/MehmetHooke" target="_blank" rel="noreferrer">
+            <span class="icon">🐙</span>
+            <span>GitHub Profilim</span>
+          </a>
+          <a class="btn" href="www.linkedin.com/in/mehmethoke" target="_blank" rel="noreferrer">
+            <span class="icon">🔗</span>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <h2>Hakkımda</h2>
+        <p>
+          Atatürk Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Mobil geliştirme (React Native,
+          Kotlin), full-stack web ve Firebase tabanlı ürünler geliştirmeye odaklanıyorum.
+          Uzun vadede hem Türkiye’de hem yurtdışında (örneğin Avustralya, Almanya) yazılım geliştirici
+          olarak kariyer hedefliyorum.
+        </p>
+        <div class="tag-row">
+          <span class="tag">React Native</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Expo Router</span>
+          <span class="tag">Firebase / Firestore</span>
+          <span class="tag">Android Studio</span>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>Projeler</h2>
+        <div class="projects">
+          <article class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-title">QuickCV – Akıllı CV Hazırlama</div>
+                <small>React Native · Firebase · HTML → PDF</small>
+              </div>
+              <span class="project-pill">Mobil Uygulama</span>
+            </div>
+            <p>
+              QuickCV, kullanıcıların telefon üzerinden modern CV şablonları seçip doldurduğu,
+              verilerin Firebase’de saklandığı ve arka plandaki bir HTML → PDF servisi ile
+              profesyonel PDF çıktıları üreten bir CV oluşturma uygulamasıdır.
+            </p>
+            <!-- Play Store linkin olunca burayı güncelle -->
+            <a href="#" title="Yakında Google Play'de">Google Play (yakında)</a>
+            <a href="/quickcv-privacy-policy.html">QuickCV Gizlilik Politikası</a>
+          </article>
+
+          <article class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-title">PianoSense – Nota Analiz Uygulaması</div>
+                <small>Android · TarsosDSP · Ses işleme</small>
+              </div>
+              <span class="project-pill">Araştırma Projesi</span>
+            </div>
+            <p>
+              PianoSense, kaydedilen piyano sesini analiz ederek TarsosDSP ve frekans → nota
+              eşleştirmeleri ile çalınan notaları tespit eden bir mobil uygulama fikridir.
+              Yeni sürümünde analiz işlemini sunucu tarafına taşıyarak çapraz platform desteği
+              hedefliyorum.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>İletişim</h2>
+        <p>
+          Bana GitHub veya LinkedIn üzerinden ulaşabilirsiniz. İşbirliği, staj, freelance
+          projeler veya QuickCV hakkında sorularınız için mesaj atabilirsiniz.
+        </p>
+        <small>E-posta: <strong>ornekmail@ornek.com</strong> (kendi adresinle değiştir)</small>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Mehmet Höke ·
+      <a href="/quickcv-privacy-policy.html">QuickCV Gizlilik Politikası</a>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
